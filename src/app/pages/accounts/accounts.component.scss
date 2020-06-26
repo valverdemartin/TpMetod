@@ -1,0 +1,18 @@
+@import "../../app.component.scss";
+
+.userTable{
+    margin: 10%; 
+    color: white;     
+}
+
+.bg-cardHeader{
+    background-color: $bg-darkGreen;
+}
+
+.bg-buttom{
+    background: $bg-whiteGreen;
+}
+
+.container{
+    height: auto!important;
+}

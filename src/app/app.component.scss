@@ -1,0 +1,17 @@
+$bg-black:#222d32;
+$bg-grey:#d0d4d6;
+$bg-blue:#648fb5;
+$bg-petroleo:#078264;
+$bg-darkGreen: #016767;
+$bg-whiteGreen: #029090;
+
+.container{
+    background: $bg-black;
+    margin: 0;
+    padding: 0;
+    min-width: 100% !important;
+    height: 100%!important;
+}
+.color-petroleo{
+    background: $bg-grey;
+}

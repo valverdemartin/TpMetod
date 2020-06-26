@@ -1,0 +1,72 @@
+<div class="container row d-flex justify-content-center" style="background: #E9E9E9;">
+  <div class="card userTable col-12 p-0" style="margin-top: 10%; box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.199)">
+    <h5 class="card-header bg-cardHeader">Clientes
+      <button [routerLink]="['0']" class="btn bg-buttom"
+        style="float: right;border: 1px solid #CCC; color:white; border-radius: 15%; margin-right: 2%;">
+        <i class="fa fa-plus" style="font-size:75%;"></i>
+      </button>
+    </h5>
+    <div class="card-body col-12" style="overflow: auto;">
+      <div class="form-inline my-2 my-lg-0">
+        <input [(ngModel)]="filter" class="form-control mr-sm-2" type="search" placeholder="Filtrar" aria-label="Search"></div>
+
+      <!-- <h5 class="card-title">Special title treatment</h5> -->
+      <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
+
+      <table class="table table-striped mt-3">
+        <thead>
+          <tr>
+            <th class="text-left" scope="col">Nombre</th>
+            <th *ngFor="let h of headers" class="text-center" scope="col">{{h}}</th>
+            <th class="text-right" scope="col">Opciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let c of clients | filter: filter">
+            <th scope="row" class="text-left">{{c.clientName}}</th>
+            <th scope="row" class="text-center">{{c.lastName}}</th>
+            <th scope="row" class="text-center">{{c.contactNumber}}</th>
+            <th scope="row" class="text-center">{{c.email}}</th>
+            <th scope="row" class="text-center">{{c.dni}}</th>
+            <th scope="row" class="text-center">{{c.city}}</th>
+
+            <td class="d-flex justify-content-end">
+              <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle bg-buttom" style="width: 3rem;" type="button"
+                  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" (click)="editClient(c)">Editar</a>
+                  <a class="dropdown-item" (click)="deleteRequest(c)" data-toggle="modal" data-target="#exampleModal">Borrar</a>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Eliminar </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Se eliminará el cliente {{deleteName}}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" (click)="deleteClient()">Eliminar</button>
+          <button type="button" id="close" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Modal -->
+</div>
